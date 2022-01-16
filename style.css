@@ -1,0 +1,374 @@
+:root {
+    --blue-color:#636ff7;
+    --grey1-color: #f7f8fb;
+    --grey2-color: #ddd;
+    --grey3-color: #ecedf0;
+    --grey4-color: rgb(168, 168, 168)
+}
+
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+#exam-page {
+    display: inherit;
+}
+
+.input-button {
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    border: 0;
+    outline: 0;
+    padding: 10px 40px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+  }
+  .input-button:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: #7e88fd;
+  }
+
+.input-button.endExam {
+    padding: 10px 20px;
+}
+
+
+.titleBar {
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
+
+.quesBar {
+    margin: auto auto;
+    max-width: 600px;
+}
+
+
+.grey1back {
+    background-color: var(--grey1-color);
+}
+
+
+.quesDesc{
+    margin: 0;
+    font-size: 12px;
+}
+
+
+
+
+
+.answer {
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 14px;
+    margin: 10px;
+    cursor: pointer;
+    border: var(--grey2-color) 2px solid;
+    border-radius: 5px;
+    padding: 15px 30px 15px 15px;
+    position: relative;
+}
+
+.answer::after {
+    font-family: FontAwesome;
+    content: "\f00c";
+    color: rgb(255, 255, 255);
+    font-size: 10px;
+    font-weight: 100;
+
+ 
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    width: 17px;
+    height: 17px;
+    border-radius: 90px;
+    border: var(--grey4-color) 1px solid;
+    top: 10px;
+    right: 10px;
+
+}
+
+
+.answer.active::after {
+    background-color: var(--blue-color);
+}
+
+.answer.active {
+    background-color: white;
+    border-color: var(--blue-color);
+}
+
+
+
+
+
+
+
+.circle {
+    font-size: 14px;
+    color: rgb(161, 161, 161);
+    background-color: var(--grey3-color);
+    border-radius: 90px;
+    padding: 20px;
+    margin: 5px;
+    width: 10px;
+    height: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+
+
+
+.circle.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 90px;
+    /* box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2); */
+
+    border: rgba(150, 150, 150, 0.418) 2px solid;
+}
+
+.circle.done{
+    background-color: var(--blue-color);
+    color: white
+}
+
+
+
+.circle.flag{
+    background-color: rgb(204, 129, 129) !important;
+    color: rgb(161, 161, 161);
+}
+
+.circle.flag .num{
+    color: white;
+}
+
+.circle .num {
+    position: absolute;
+    top: 9px;
+    left: 12px;
+    pointer-events: none;
+}
+
+.circle.move .num {
+    left: 14px;
+}
+
+.circle2 {
+    background-color: darkgrey;
+    border-radius: 90px;
+    padding: 20px;
+    width: 10px;
+    height: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.circle2::after {
+    content: "1";
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+
+
+
+.nextQues.noVis{
+    pointer-events: none;
+    background-color: var(--grey1-color);
+    color: var(--grey4-color);
+    border: var(--grey1-color) 2px solid;
+
+}
+
+.nextQues {
+    margin: 0 40px;
+    font-size: 12px;
+    width: 150px;
+    height: 50px;
+    text-align: left;
+    background-color: var(--blue-color);
+    position: relative;
+}
+
+.nextQues::after {
+    font-family: FontAwesome;
+    content: "\f178";
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 100;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 13px;
+    right: 20px;
+}
+
+.prevQues.noVis{
+    pointer-events: none;
+    background-color: var(--grey1-color);
+    color: var(--grey4-color);
+    border-color: var(--grey2-color) 5px solid;
+}
+
+.prevQues {
+    margin: 0 40px;
+    font-size: 12px;
+    width: 150px;
+    height: 50px;
+    text-align: right;
+    background-color: var(--blue-color);
+    position: relative;
+}
+
+.prevQues::after {
+    font-family: FontAwesome;
+    content: "\f177";
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 100;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 13px;
+    left: 20px;
+}
+
+.buttonnsContainer {
+    position: absolute;
+    bottom: 20px;
+    left: auto;
+}
+
+
+.endExam {
+    margin: 0 auto;
+    font-size: 16px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    background-color: var(--blue-color);
+    position: relative;
+}
+
+
+
+
+.flagQuestion {
+    cursor: pointer;
+    color: rgb(204, 129, 129);
+    font-size: 14px;
+    top: 20px;
+    right: 25px;
+}
+
+
+.category h5 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 13px;
+}
+
+.category h5 span {
+    color: var(--blue-color);
+    margin-left: 5px;
+}
+
+
+
+
+/* Widget */
+
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+.widget h5 {
+    font-size: 12px;
+    margin: 0;
+}
+
+.widget {
+  color: dimgray;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 50;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.widget .wg-header {
+  display: flex;
+  background: #EEE;
+  border-radius: 42.5px 0 0 42.5px;
+  border: 1px solid #e1e1e1;
+}
+.widget .wg-photo {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #f0ecec;
+  box-shadow: 0 0 0 5px #f0ecec, 0 0 0 6px #d9d0d0, 3px 0 15px 0 black;
+  margin-right: 15px;
+  position: relative;
+}
+.widget .wg-photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.widget .wg-photo i {
+    position: absolute;
+    left: 1px;
+    top: 2px;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    display: block;
+  }
+  .widget .wg-photo2 i {
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    display: block;
+  }
+.widget .wg-content {
+  flex-shrink: 0;
+  display: flex;
+  overflow: hidden;
+}
+.widget .wg-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px 10px 5px 5px;
+}
+
+
+.fa-sign-out {
+    cursor: pointer;
+}

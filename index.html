@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examination system</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,100&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="timer.css">
+    <link rel="stylesheet" href="result.css">
+    <script>localStorage.getItem('temp') == 'true' ? '' : location.replace("./login.html")</script>
+</head>
+
+<body>
+
+
+
+
+    <div id="exam-page">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="titleBar col-md-4 d-flex flex-md-column justify-content-between">
+                    <div class="row">
+                        <h3 class="mt-2 ml-2">Exam</h3>
+
+                        <div class="container">
+                            <div class="circletimer">
+                                <svg width="100px" viewBox="60 60 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <g transform="translate(110,110)">
+                                        <circle r="40" class="e-c-base" />
+                                        <g transform="rotate(-90)">
+                                            <circle r="40" class="e-c-progress2" />
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="controlls2">
+                                <div class="display-percentage">25 </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row mt-5">
+                        <div class="col-12 indexes d-flex justify-content-center flex-wrap">
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <div class="row">
+                        <div class="container">
+                            <div class="circletimer">
+                                <svg width="200" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
+                                    <g transform="translate(110,110)">
+                                        <circle r="70" class="e-c-base" />
+                                        <g transform="rotate(-90)">
+                                            <circle r="70" class="e-c-progress" />
+                                            <g id="e-pointer">
+                                                <circle cx="70" cy="4" r="9" class="e-c-pointer" />
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="controlls">
+                                <div class="display-remain-time">00:30</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+                        <button class="input-button endExam my-5" onclick="endExam()">
+                            <i class="fas fa-chart-pie-alt"></i>
+
+                            End Exam
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="grey1back col-md-8 text-center mt-auto vh-100 position-relative d-flex align-items-center justify-content-center">
+                    <section class="widget" id="widget">
+                        <section class="wg-header">
+                            <section class="wg-photo"><i class="fal fa-sign-out" onclick="signout()"></i></section>
+                            <!-- <section class="wg-photo"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/716438/profile/profile-512.jpg" alt="photo"/></section> -->
+                            <section class="wg-content">
+                                <section class="wg-info">
+                                    
+                                    <h5 class="wg-names"></h5>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                    <div class="quesBar">
+                        <p class="quesDesc">Question 1 of 4</p>
+                        <h4 class="quesTitle row d-block">What is your name</h4>
+                        <div class="answers row justify-content-center">
+                            <div class="col-6 answer answer1">
+                                Sherif
+                            </div>
+                            <div class="col-6 answer answer2">
+                                Sherif
+                            </div>
+                            <div class="col-6 answer answer3">
+                                Sherif
+                            </div>
+                            <div class="col-6 answer answer4">
+                                Sherif
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="buttonnsContainer">
+                        <button class="input-button prevQues" onclick="prevQues()">Previous</button>
+                        <button class="input-button nextQues" onclick="nextQues()">Next</button>
+                    </div>
+                    <div class="flagQuestion position-absolute">
+                        <a onclick="flagCircle()">
+                            <span class="fas fa-flag"></span>
+                            <p>Flag Question</p>
+                        </a>
+                    </div>
+
+                    <div class="category">
+                        <h5>Category: <span>Cat</span></h5>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="result-page">
+        
+        <h1>
+            Congratulations! You have passed the exam
+        </h1>
+        <div id="wrapper">
+            <div class="innerdiv innerdiv2" contenteditable>
+                <h5 contenteditable="false">Total Result</h5>
+                <svg viewBox="10 14 30 30">
+                    <g id="alpha" transform="translate(25 25) rotate(-90)">
+                        <circle id="aCirc" r="10" />
+                        <path id="aPath" d=""></path>
+                    </g>
+                    <text id="aText" x="25" y="25">19</text>
+                </svg>
+            </div>
+            <div class="innerdiv" contenteditable>
+                <h5 contenteditable="false">General Knowledge</h5>
+                <svg viewBox="10 14 30 30">
+                    <g id="beta" transform="translate(25 25) rotate(-90)">
+                        <circle id="bCirc" r="10" />
+                        <path id="bPath" d=""></path>
+                    </g>
+                    <text id="bText" x="25" y="25">
+                        <tspan>62
+                    </text>
+                </svg>
+            </div>
+            <div class="innerdiv" contenteditable>
+                <h5 contenteditable="false">Statistical <br> skill</h5>
+                <svg viewBox="10 14 30 30">
+                    <g id="gama" transform="translate(25 25) rotate(-90)">
+                        <circle id="gCirc" r="10" />
+                        <path id="gPath" d=""></path>
+                    </g>
+                    <text id="gText" x="25" y="25">62</text>
+                </svg>
+            </div>
+        </div>
+
+        <section class="widget" id="widget">
+            <section class="wg-header">
+                <section class="wg-photo wg-photo2"><i class="fal fa-sign-out" onclick="signout()"></i></section>
+                <!-- <section class="wg-photo"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/716438/profile/profile-512.jpg" alt="photo"/></section> -->
+                <section class="wg-content">
+                    <section class="wg-info">
+                        <h5 class="wg-names">Sherif Adel</h5>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="result.js"></script>
+    <script src="session.js"></script>
+
+</body>
+
+</html>
